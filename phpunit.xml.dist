@@ -16,7 +16,7 @@
     backupStaticProperties="false"
 >
     <testsuites>
-        <testsuite name="VendorName Test Suite">
+        <testsuite name="Oneduo Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
@@ -35,4 +35,9 @@
             <directory suffix=".php">./src</directory>
         </include>
     </source>
+    <php>
+        <env name="CLOUDFRONT_REGION" value="eu-west-3"/>
+        <env name="CLOUDFRONT_KEY_PAIR_ID" value="K2MP129VDQE9MM"/>
+        <env name="CLOUDFRONT_PRIVATE_KEY_PATH" value="./private.key.pem"/>
+    </php>
 </phpunit>
