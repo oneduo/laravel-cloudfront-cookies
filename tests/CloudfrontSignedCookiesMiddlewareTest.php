@@ -1,7 +1,6 @@
 <?php
 
 use Oneduo\LaravelCloudfrontCookies\Http\Middleware\CloudfrontSignedCookiesMiddleware;
-
 use function Pest\Laravel\call;
 use function Pest\Laravel\get;
 
@@ -12,8 +11,8 @@ it('skip generation if signed cookies already present', function () {
         method: 'GET',
         uri: '/',
         cookies: collect($cookies)
-            ->mapWithKeys(fn(string $c) => [
-                $c => fake()->word()
+            ->mapWithKeys(fn (string $c) => [
+                $c => fake()->word(),
             ])
             ->toArray(),
     );

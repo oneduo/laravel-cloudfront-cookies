@@ -29,7 +29,7 @@ class CloudfrontSignedCookiesMiddleware
         $intervalValue = config('cloudfront.cookies_expiration.value');
         $intervalUnit = config('cloudfront.cookies_expiration.unit');
 
-        $interval = CarbonInterval::fromString($intervalValue . $intervalUnit);
+        $interval = CarbonInterval::fromString($intervalValue.$intervalUnit);
 
         $expiration = now()->add($interval);
 
@@ -41,7 +41,7 @@ class CloudfrontSignedCookiesMiddleware
         $host = config('cloudfront-cookies.cookie_domain');
 
         collect($cookies)->each(function (string $value, string $name) use ($host, $interval) {
-            $cookie = Cookie::make($name, $value, minutes: (int)$interval->totalMinutes, domain: $host);
+            $cookie = Cookie::make($name, $value, minutes: (int) $interval->totalMinutes, domain: $host);
 
             Cookie::queue($cookie);
         });

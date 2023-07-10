@@ -11,7 +11,9 @@ use Illuminate\Support\Carbon;
 class LaravelCloudfrontCookies
 {
     public string $resource;
+
     public Carbon $expires_at;
+
     public string $policy;
 
     public function __construct(public readonly CloudFrontClient $client)
@@ -34,7 +36,7 @@ class LaravelCloudfrontCookies
 
     public function policy(string $policy = null): static
     {
-        if (!isset($this->resource, $this->expires_at)) {
+        if (! isset($this->resource, $this->expires_at)) {
             throw new Exception('resource and expires_at must be set before calling policy()');
         }
 

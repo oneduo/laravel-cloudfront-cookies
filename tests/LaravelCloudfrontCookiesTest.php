@@ -3,7 +3,7 @@
 use Oneduo\LaravelCloudfrontCookies\Facades\LaravelCloudfrontCookies;
 
 it('generates signed cookies', function () {
-    $cookies = LaravelCloudfrontCookies::resource("http*://localhost/*")
+    $cookies = LaravelCloudfrontCookies::resource('http*://localhost/*')
         ->expiresAt(now()->addDay())
         ->policy()
         ->get();
